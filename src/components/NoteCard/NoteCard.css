@@ -1,0 +1,130 @@
+.note-card {
+  background-color: var(--bg-card);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  height: 220px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.note-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary-light);
+}
+
+.note-card.pinned {
+  border-top: 3px solid var(--accent);
+}
+
+.note-header {
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.note-header h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: var(--font-weight-medium);
+  color: var(--text-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-right: 1.5rem;
+}
+
+.pin-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pin-icon {
+  width: 18px;
+  height: 18px;
+  color: var(--text-tertiary);
+  transition: color 0.2s ease;
+}
+
+.pin-button:hover .pin-icon {
+  color: var(--accent);
+}
+
+.pin-button.pinned .pin-icon {
+  color: var(--accent);
+}
+
+.note-content {
+  flex: 1;
+  padding: 0 1rem;
+  overflow: hidden;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.note-tags {
+  padding: 0.5rem 1rem;
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.tag {
+  font-size: 0.7rem;
+  background-color: var(--border-light);
+  color: var(--text-secondary);
+  padding: 0.25rem 0.5rem;
+  border-radius: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.tag-icon {
+  width: 10px;
+  height: 10px;
+}
+
+.note-footer {
+  padding: 0.75rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--border-light);
+  background-color: rgba(0, 0, 0, 0.02);
+  margin-top: auto;
+}
+
+.note-category {
+  font-size: 0.75rem;
+  color: var(--primary);
+  background-color: rgba(67, 97, 238, 0.1);
+  padding: 0.125rem 0.5rem;
+  border-radius: 1rem;
+}
+
+.note-date {
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+}
+
+@media (max-width: 768px) {
+  .note-card {
+    height: auto;
+    min-height: 180px;
+  }
+}
