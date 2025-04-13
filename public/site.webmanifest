@@ -1,0 +1,30 @@
+{
+  "name": "NoteSphere",
+  "short_name": "NoteSphere",
+  "icons": [
+    {
+      "src": "/icons/pwa-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/pwa-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/pwa-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/",
+  "description": "Aplicación para gestionar notas de manera eficiente",
+  "orientation": "portrait-primary",
+  "categories": ["productivity", "utilities"]
+} 

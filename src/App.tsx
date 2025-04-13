@@ -7,6 +7,8 @@ import NotesList from './components/NotesList/NotesList'
 import CreateNoteForm from './components/CreateNoteForm/CreateNoteForm'
 import NoteDetail from './components/NoteDetail/NoteDetail'
 import Modal from './components/Modal/Modal'
+import PwaPrompt from './components/PwaPrompt/PwaPrompt'
+import OfflineReady from './components/OfflineReady/OfflineReady'
 
 function App() {
   const {
@@ -80,6 +82,10 @@ function App() {
           </div>
         )}
       </main>
+
+      {/* Componentes PWA */}
+      <PwaPrompt />
+      <OfflineReady />
     </div>
   )
 }
