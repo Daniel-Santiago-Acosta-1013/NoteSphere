@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Note } from '../../types/note';
 import { formatDate, getRelativeTime } from '../../utils/dateUtils';
 import {
@@ -10,6 +10,7 @@ import {
   TagIcon
 } from '@heroicons/react/24/outline';
 import { StarIcon as StarIconSolid } from '@heroicons/react/24/solid';
+import ConfirmationModal from '../Modal/ConfirmationModal';
 import './NoteDetail.css';
 
 interface NoteDetailProps {
@@ -20,11 +21,15 @@ interface NoteDetailProps {
 }
 
 const NoteDetail: React.FC<NoteDetailProps> = ({ note, onClose, onDelete, onTogglePin }) => {
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+
   const handleDelete = () => {
-    if (window.confirm('¿Estás seguro de que quieres eliminar esta nota?')) {
-      onDelete(note.id);
-      onClose();
-    }
+    setIsDeleteModalOpen(true);
+  };
+
+  const confirmDelete = () => {
+    onDelete(note.id);
+    onClose();
   };
 
   return (
@@ -96,6 +101,16 @@ const NoteDetail: React.FC<NoteDetailProps> = ({ note, onClose, onDelete, onTogg
       <div className="note-content-full">
         {note.content}
       </div>
+
+      <ConfirmationModal 
+        isOpen={isDeleteModalOpen}
+        onClose={() => setIsDeleteModalOpen(false)}
+        onConfirm={confirmDelete}
+        title="Eliminar nota"
+        message="¿Estás seguro de que quieres eliminar esta nota? Esta acción no se puede deshacer."
+        confirmText="Eliminar"
+        cancelText="Cancelar"
+      />
     </div>
   );
 };
